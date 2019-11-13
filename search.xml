@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>test3</title>
+    <url>/2019/11/13/test3/</url>
+    <content><![CDATA[<a id="more"></a>
+
+]]></content>
+      <categories>
+        <category>i.mx6ull</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>linux</tag>
+        <tag>嵌入式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>test2</title>
     <url>/2019/11/13/test2/</url>
     <content><![CDATA[<p>what are you doing</p>
