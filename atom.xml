@@ -2,7 +2,7 @@
 <feed xmlns="https://www.w3.org/2005/Atom">
   <title>EASY</title>
   
-  
+  <subtitle>FishWinter</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
