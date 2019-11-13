@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/404.html</loc>
-    
-    <lastmod>2019-11-13T09:14:19.057Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2019/11/13/test2/</loc>
     
     <lastmod>2019-11-13T08:50:09.127Z</lastmod>
