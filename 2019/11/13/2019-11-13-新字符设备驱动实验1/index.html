@@ -57,14 +57,14 @@
 <meta name="keywords" content="学习,linux,嵌入式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="新字符设备驱动实验1">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;13&#x2F;2019-11-13-%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yutianyao.top&#x2F;2019&#x2F;11&#x2F;13&#x2F;2019-11-13-%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1&#x2F;index.html">
 <meta property="og:site_name" content="EASY">
 <meta property="og:description" content="alloc_chrdev_region(&amp;amp;dev_t,0,1,”test”)申请设备号我觉得这个比较常用从0开始申请1个关于test的设备号设备号保存在devid中 unregister_chrdev_region(dev_t, 1)注销设备号注销devid设备1个这里有疑问,如果有3个次设备号呢,怎么确定注销哪一个? 定义cdev结构体在include&#x2F;linux&#x2F;cdev.h这里">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-14T00:00:33.671Z">
+<meta property="og:updated_time" content="2019-11-14T00:21:45.252Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2019/11/13/2019-11-13-%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1/">
+<link rel="canonical" href="http://yutianyao.top/2019/11/13/2019-11-13-%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1/">
 
 
 <script id="page-configurations">
@@ -224,7 +224,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/13/2019-11-13-%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1/">
+    <link itemprop="mainEntityOfPage" href="http://yutianyao.top/2019/11/13/2019-11-13-%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ali.jpg">
@@ -254,7 +254,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-14 08:00:33" itemprop="dateModified" datetime="2019-11-14T08:00:33+08:00">2019-11-14</time>
+                <time title="修改时间：2019-11-14 08:21:45" itemprop="dateModified" datetime="2019-11-14T08:21:45+08:00">2019-11-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -340,7 +340,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/11/13/2019-11-13-%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1/" title="新字符设备驱动实验1">http://yoursite.com/2019/11/13/2019-11-13-%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1/</a>
+    <a href="http://yutianyao.top/2019/11/13/2019-11-13-%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1/" title="新字符设备驱动实验1">http://yutianyao.top/2019/11/13/2019-11-13-%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
