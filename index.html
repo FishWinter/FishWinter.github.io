@@ -222,7 +222,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/13/%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/13/2019-11-13-%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ali.jpg">
@@ -236,7 +236,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/13/%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1/" class="post-title-link" itemprop="url">新字符设备驱动实验1</a>
+            <a href="/2019/11/13/2019-11-13-%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1/" class="post-title-link" itemprop="url">新字符设备驱动实验1</a>
         </h2>
 
         <div class="post-meta">
@@ -253,7 +253,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-14 07:55:35" itemprop="dateModified" datetime="2019-11-14T07:55:35+08:00">2019-11-14</time>
+                <time title="修改时间：2019-11-14 08:00:33" itemprop="dateModified" datetime="2019-11-14T08:00:33+08:00">2019-11-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -273,7 +273,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -306,6 +306,7 @@
 <p>struct class class_create(struct module *owner, const char *name)<br>第一个参数为owner 一般为THIS_MODULE THIS_MODULE是什么?<br>第二个为类名字<br>返回值是指向结构体class的指针</p>
 <p>void class_destroy(struct class *cls)<br>删除类</p>
 <p>struct device *device_create(    struct class     *class<br>                struct device     *parent<br>                dev_t            devt<br>                void            *drvdata<br>                const char        *fmt,…)<br>创建设备,返回指向设备的指针<br>第一个为类<br>第二个parent为父参数,一般为NULL<br>第三个devt是设备号<br>第四个设备可能会使用的数据,一般为NULL<br>第五个设备名字<br>void device_destroy(struct *class, dev_t devt)</p>
+<p>类和设备,先创建类在在类里创建设备,他们放在驱动入口函数</p>
 
       
     </div>
@@ -325,7 +326,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/13/test3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/13/2019-11-13-test3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ali.jpg">
@@ -339,7 +340,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/13/test3/" class="post-title-link" itemprop="url">test3</a>
+            <a href="/2019/11/13/2019-11-13-test3/" class="post-title-link" itemprop="url">test3</a>
         </h2>
 
         <div class="post-meta">
@@ -609,7 +610,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1k</span>
+    <span title="站点总字数">2k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

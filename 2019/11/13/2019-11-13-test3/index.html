@@ -53,18 +53,16 @@
   };
 </script>
 
-  <meta name="description" content="alloc_chrdev_region(&amp;amp;dev_t,0,1,”test”)申请设备号我觉得这个比较常用从0开始申请1个关于test的设备号设备号保存在devid中 unregister_chrdev_region(dev_t, 1)注销设备号注销devid设备1个这里有疑问,如果有3个次设备号呢,怎么确定注销哪一个? 定义cdev结构体在include&#x2F;linux&#x2F;cdev.h这里">
-<meta name="keywords" content="学习,linux,嵌入式">
+  <meta name="keywords" content="学习,linux,嵌入式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="新字符设备驱动实验1">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;13&#x2F;%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1&#x2F;index.html">
+<meta property="og:title" content="test3">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;13&#x2F;2019-11-13-test3&#x2F;index.html">
 <meta property="og:site_name" content="EASY">
-<meta property="og:description" content="alloc_chrdev_region(&amp;amp;dev_t,0,1,”test”)申请设备号我觉得这个比较常用从0开始申请1个关于test的设备号设备号保存在devid中 unregister_chrdev_region(dev_t, 1)注销设备号注销devid设备1个这里有疑问,如果有3个次设备号呢,怎么确定注销哪一个? 定义cdev结构体在include&#x2F;linux&#x2F;cdev.h这里">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-13T23:55:35.977Z">
+<meta property="og:updated_time" content="2019-11-13T09:52:30.898Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2019/11/13/%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1/">
+<link rel="canonical" href="http://yoursite.com/2019/11/13/2019-11-13-test3/">
 
 
 <script id="page-configurations">
@@ -78,7 +76,7 @@
   };
 </script>
 
-  <title>新字符设备驱动实验1 | EASY</title>
+  <title>test3 | EASY</title>
   
 
 
@@ -224,7 +222,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/13/%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/13/2019-11-13-test3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ali.jpg">
@@ -237,7 +235,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          新字符设备驱动实验1
+          test3
         </h2>
 
         <div class="post-meta">
@@ -247,15 +245,8 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-11-13 20:58:45" itemprop="dateCreated datePublished" datetime="2019-11-13T20:58:45+08:00">2019-11-13</time>
+              <time title="创建时间：2019-11-13 17:52:30" itemprop="dateCreated datePublished" datetime="2019-11-13T17:52:30+08:00">2019-11-13</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-14 07:55:35" itemprop="dateModified" datetime="2019-11-14T07:55:35+08:00">2019-11-14</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -281,7 +272,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>0</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -302,18 +293,6 @@
       
         <a id="more"></a>
 
-
-<p>alloc_chrdev_region(&amp;dev_t,0,1,”test”)<br>申请设备号<br>我觉得这个比较常用<br>从0开始申请1个关于test的设备号<br>设备号保存在devid中</p>
-<p>unregister_chrdev_region(dev_t, 1)<br>注销设备号<br>注销devid设备1个<br>这里有疑问,如果有3个次设备号呢,怎么确定注销哪一个?</p>
-<p>定义cdev结构体<br>在include/linux/cdev.h这里面比较重要的是两个变量<br>const struct file_operations *ops 包含设备文件操作函数<br>dev_t 包含设备号</p>
-<p>cdev_init(struct cdev *cdev,const struct file_operation *fops)<br>初始化cdev<br>第一个选项为未初始化的cdev<br>第二个选项为设备操作函数<br>设备操作函数定义 static struct file_operations test_fops = {<br>    .owner = THIS_MODULE<br>}<br>testcdev.owner = THIS_MODULE</p>
-<p>cdev_add(struct cdev *p,dev_t dev,unsigned count)<br>用于向linux系统添加字符设备<br>cdev_add(&amp;cdev, dev_t, 1)</p>
-<p>cdev包含dev_t, file_operations</p>
-<p>cdev_del(&amp;cdev)<br>删除cdev<br>和unregister_chrdev_region(dev_t, 1)注销设备号一起使用,那么建立也是一起cdev和alloc_chrdev_region</p>
-<p>前面是自动获取设备号之后是自动创建设备节点<br>设备节点在/dev下.linux下是udev自动建立删除设备节点文件.用busybox构建的根文件系统中用的是简化版本mdev.插拔事件也是mdev管理</p>
-<p>struct class class_create(struct module *owner, const char *name)<br>第一个参数为owner 一般为THIS_MODULE THIS_MODULE是什么?<br>第二个为类名字<br>返回值是指向结构体class的指针</p>
-<p>void class_destroy(struct class *cls)<br>删除类</p>
-<p>struct device *device_create(    struct class     *class<br>                struct device     *parent<br>                dev_t            devt<br>                void            *drvdata<br>                const char        *fmt,…)<br>创建设备,返回指向设备的指针<br>第一个为类<br>第二个parent为父参数,一般为NULL<br>第三个devt是设备号<br>第四个设备可能会使用的数据,一般为NULL<br>第五个设备名字<br>void device_destroy(struct *class, dev_t devt)</p>
 
     </div>
 
@@ -339,7 +318,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/11/13/%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1/" title="新字符设备驱动实验1">http://yoursite.com/2019/11/13/%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1/</a>
+    <a href="http://yoursite.com/2019/11/13/2019-11-13-test3/" title="test3">http://yoursite.com/2019/11/13/2019-11-13-test3/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -359,14 +338,17 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/11/13/test3/" rel="next" title="test3">
-                  <i class="fa fa-chevron-left"></i> test3
+                <a href="/2019/11/12/hello-world/" rel="next" title="Hello World">
+                  <i class="fa fa-chevron-left"></i> Hello World
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+                <a href="/2019/11/13/2019-11-13-%E6%96%B0%E5%AD%97%E7%AC%A6%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E5%AE%9E%E9%AA%8C1/" rel="prev" title="新字符设备驱动实验1">
+                  新字符设备驱动实验1 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
       </footer>
@@ -494,7 +476,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1k</span>
+    <span title="站点总字数">2k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
@@ -593,7 +575,7 @@
       repo: 'FishWinter.github.io',
       owner: 'FishWinter',
       admin: ['FishWinter'],
-      id: 'ad6c5983940d0b26d7a1ec1b1d39a196',
+      id: '35130eb426cc27a58549b68cd07c28fb',
         language: 'zh-CN',
       distractionFreeMode: 'true'
     });
