@@ -23,18 +23,11 @@
     <published>2019-11-13T12:58:45.000Z</published>
     <updated>2019-11-14T00:21:45.252Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><p>alloc_chrdev_region(&amp;dev_t,0,1,”test”)<br>申请设备号<br>我觉得这个比较常用<br>从0开始申请1个关于test的设备号<br>设备号保存在devid中</p><p>unregister_chrdev_region(dev_t, 1)<br>注销设备号<br>注销devid设备1个<br>这里有疑问,如果有3个次设备号呢,怎么确定注销哪一个?</p><p>定义cdev结构体<br>在include/linux/cdev.h这里面比较重要的是两个变量<br>const struct file_operations *ops 包含设备文件操作函数<br>dev_t 包含设备号</p><p>cdev_init(struct cdev *cdev,const struct file_operation *fops)<br>初始化cdev<br>第一个选项为未初始化的cdev<br>第二个选项为设备操作函数<br>设备操作函数定义 static struct file_operations test_fops = {<br>    .owner = THIS_MODULE<br>}<br>testcdev.owner = THIS_MODULE</p><p>cdev_add(struct cdev *p,dev_t dev,unsigned count)<br>用于向linux系统添加字符设备<br>cdev_add(&amp;cdev, dev_t, 1)</p><p>cdev包含dev_t, file_operations</p><p>cdev_del(&amp;cdev)<br>删除cdev<br>和unregister_chrdev_region(dev_t, 1)注销设备号一起使用,那么建立也是一起cdev和alloc_chrdev_region</p><p>前面是自动获取设备号之后是自动创建设备节点<br>设备节点在/dev下.linux下是udev自动建立删除设备节点文件.用busybox构建的根文件系统中用的是简化版本mdev.插拔事件也是mdev管理</p><p>struct class class_create(struct module *owner, const char *name)<br>第一个参数为owner 一般为THIS_MODULE THIS_MODULE是什么?<br>第二个为类名字<br>返回值是指向结构体class的指针</p><p>void class_destroy(struct class *cls)<br>删除类</p><p>struct device *device_create(    struct class     *class<br>                struct device     *parent<br>                dev_t            devt<br>                void            *drvdata<br>                const char        *fmt,…)<br>创建设备,返回指向设备的指针<br>第一个为类<br>第二个parent为父参数,一般为NULL<br>第三个devt是设备号<br>第四个设备可能会使用的数据,一般为NULL<br>第五个设备名字<br>void device_destroy(struct *class, dev_t devt)</p><p>类和设备,先创建类在在类里创建设备,他们放在驱动入口函数</p>]]></content>
+    <content type="html"><![CDATA[<!-- build time:Thu Nov 14 2019 09:23:19 GMT+0800 (GMT+08:00) --><a id="more"></a><p>alloc_chrdev_region(&amp;dev_t,0,1,”test”)<br>申请设备号<br>我觉得这个比较常用<br>从0开始申请1个关于test的设备号<br>设备号保存在devid中</p><p>unregister_chrdev_region(dev_t, 1)<br>注销设备号<br>注销devid设备1个<br>这里有疑问,如果有3个次设备号呢,怎么确定注销哪一个?</p><p>定义cdev结构体<br>在include/linux/cdev.h这里面比较重要的是两个变量<br>const struct file_operations *ops 包含设备文件操作函数<br>dev_t 包含设备号</p><p>cdev_init(struct cdev *cdev,const struct file_operation *fops)<br>初始化cdev<br>第一个选项为未初始化的cdev<br>第二个选项为设备操作函数<br>设备操作函数定义 static struct file_operations test_fops = {<br>.owner = THIS_MODULE<br>}<br>testcdev.owner = THIS_MODULE</p><p>cdev_add(struct cdev *p,dev_t dev,unsigned count)<br>用于向linux系统添加字符设备<br>cdev_add(&amp;cdev, dev_t, 1)</p><p>cdev包含dev_t, file_operations</p><p>cdev_del(&amp;cdev)<br>删除cdev<br>和unregister_chrdev_region(dev_t, 1)注销设备号一起使用,那么建立也是一起cdev和alloc_chrdev_region</p><p>前面是自动获取设备号之后是自动创建设备节点<br>设备节点在/dev下.linux下是udev自动建立删除设备节点文件.用busybox构建的根文件系统中用的是简化版本mdev.插拔事件也是mdev管理</p><p>struct class class_create(struct module *owner, const char *name)<br>第一个参数为owner 一般为THIS_MODULE THIS_MODULE是什么?<br>第二个为类名字<br>返回值是指向结构体class的指针</p><p>void class_destroy(struct class *cls)<br>删除类</p><p>struct device *device_create( struct class *class<br>struct device *parent<br>dev_t devt<br>void *drvdata<br>const char *fmt,…)<br>创建设备,返回指向设备的指针<br>第一个为类<br>第二个parent为父参数,一般为NULL<br>第三个devt是设备号<br>第四个设备可能会使用的数据,一般为NULL<br>第五个设备名字<br>void device_destroy(struct *class, dev_t devt)</p><p>类和设备,先创建类在在类里创建设备,他们放在驱动入口函数</p><!-- rebuild by neat -->]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-
-&lt;p&gt;alloc_chrdev_region(&amp;amp;dev_t,0,1,”test”)&lt;br&gt;申请设备号&lt;br&gt;我觉得这个比较常用&lt;br&gt;从0开始申请1个关于test的设备号&lt;br&gt;设备号保存在devid中&lt;/p&gt;
-&lt;p&gt;unregis
-      
+      &lt;!-- build time:Thu Nov 14 2019 09:23:19 GMT+0800 (GMT+08:00) --&gt;
     
     </summary>
     
@@ -57,16 +50,11 @@
     <published>2019-11-13T09:52:30.000Z</published>
     <updated>2019-11-14T00:21:45.253Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<!-- build time:Thu Nov 14 2019 09:23:19 GMT+0800 (GMT+08:00) --><a id="more"></a><!-- rebuild by neat -->]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-
-
-      
+      &lt;!-- build time:Thu Nov 14 2019 09:23:19 GMT+0800 (GMT+08:00) --&gt;
     
     </summary>
     
@@ -89,13 +77,13 @@
     <published>2019-11-12T09:25:51.125Z</published>
     <updated>2019-11-14T00:21:45.253Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<!-- build time:Thu Nov 14 2019 09:23:19 GMT+0800 (GMT+08:00) --><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p><!-- rebuild by neat -->]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+        &lt;!-- build time:Thu Nov 14 2019 09:23:19 GMT+0800 (GMT+08:00) --&gt;&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hex
       
     
     </summary>
